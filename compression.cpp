@@ -109,6 +109,24 @@ void makingHuffManCode(const string& input) {
     } else {
         cout << "Unable to open output file." << endl;
     }
+
+    // Save the encoded string to compressed file
+    ofstream compressedFile("compressed.txt");
+    if (compressedFile.is_open()) {
+        compressedFile << encodedString;
+        compressedFile.close();
+    } else {
+        cout << "Unable to open compressed file." << endl;
+    }
+
+    // Save the original string to an initial file
+    ofstream originalFile("original.txt");
+    if (originalFile.is_open()) {
+        originalFile << input;
+        originalFile.close();
+    } else {
+        cout << "Unable to open original file." << endl;
+    }
 }
 
 int main() {
